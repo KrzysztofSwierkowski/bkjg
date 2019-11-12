@@ -1,6 +1,6 @@
 <?php // login.php
  $hn = 'localhost';
- $db = 'competensions';
+ $db = 'tournament';
  $un = 'root';
  $pw = '';
 ?>
