@@ -28,11 +28,11 @@
 <tr>
 
 <td><input type="text" name="name"></td>
-<td><input type="text" name="name"></td>
+<td><input type="text" name="club"></td>
 
 <td>
 
-<select name="points" size="1">
+<select name="point1" size="1">
  <option value="1">1</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -49,7 +49,7 @@
 
 <td>
 
-<select name="points" size="1">
+<select name="point2" size="1">
  <option value="1">1</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -66,7 +66,7 @@
 
 <td>
 
-<select name="points" size="1">
+<select name="point3" size="1">
  <option value="1">1</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -83,7 +83,7 @@
 
 <td>
 
-<select name="points" size="1">
+<select name="point4" size="1">
  <option value="1">1</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -100,7 +100,7 @@
 
 <td>
 
-<select name="points" size="1">
+<select name="point5" size="1">
  <option value="1">1</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -117,7 +117,7 @@
 
 <td>
 
-<select name="points" size="1">
+<select name="point6" size="1">
  <option value="1">1</option>
  <option value="2">2</option>
  <option value="3">3</option>
@@ -131,7 +131,8 @@
 </select>
 
 </td>
-
+<td><input type="text" name="xcount"></td>
+<td><input type="text" name="score"></td>
 
 
 

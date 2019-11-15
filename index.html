@@ -5,9 +5,9 @@
 <script type="text/javascript">
 function add_row()
 {
- $rowno=$("#zawody tr").length;
+ $rowno=$("#employee_table tr").length;
  $rowno=$rowno+1;
- $("#zawody tr:last").after("<tr id='row"+$rowno+"'><td><input type='text' name='name[]' placeholder='Enter Name'></td><td><input type='text' name='klub[]' placeholder='podaj nazwę klubu'></td><td><input type='text' name='Point1' placeholder='Seria 1'></td><td><input type='text' name='Point2' placeholder='Seria 2'></td><td><input type='text' name='Point3' placeholder='Seria 3'></td><td><input type='text' name='Point4' placeholder='Seria 4'></td><td><input type='text' name='Point5' placeholder='Seria 5'></td><td><input type='text' name='Point6' placeholder='Seria 6'></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+ $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='text' name='name[]' placeholder='Enter Name'></td><td><input type='text' name='age[]' placeholder='Enter Age'></td><td><select name='point1' size='1'><option value='choose' selected>--Wybierz--</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select></td></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
 }
 function delete_row(rowno)
 {
@@ -20,122 +20,13 @@ function delete_row(rowno)
 
 <div id="form_div">
  <form method="post" action="store_detail.php">
-  <table id="zawody" align=center>
-    <tbody>
-        <tr>
-        
-        <td><input type="text" name="name"></td>
-        <td><input type="text" name="name"></td>
-        
-        <td>
-        
-        <select name="points" size="1">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-         <option value="8">8</option>
-         <option value="9">9</option>
-         <option value="10">10</option>
-        </select>
-        
-        </td>
-        
-        <td>
-        
-        <select name="points" size="1">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-         <option value="8">8</option>
-         <option value="9">9</option>
-         <option value="10">10</option>
-        </select>
-        
-        </td>
-        
-        <td>
-        
-        <select name="points" size="1">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-         <option value="8">8</option>
-         <option value="9">9</option>
-         <option value="10">10</option>
-        </select>
-        
-        </td>
-        
-        <td>
-        
-        <select name="points" size="1">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-         <option value="8">8</option>
-         <option value="9">9</option>
-         <option value="10">10</option>
-        </select>
-        
-        </td>
-        
-        <td>
-        
-        <select name="points" size="1">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-         <option value="8">8</option>
-         <option value="9">9</option>
-         <option value="10">10</option>
-        </select>
-        
-        </td>
-        
-        <td>
-        
-        <select name="points" size="1">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-         <option value="8">8</option>
-         <option value="9">9</option>
-         <option value="10">10</option>
-        </select>
-        
-        </td>
-        
-        
-        
-        
-        
-        </tr>
-        </tbody>
-        </table>
+  <table id="employee_table" align=center>
+   <tr id="row1">
+    <td><input type="text" name="name[]" placeholder="Enter Name"></td>
+    <td><input type="text" name="age[]" placeholder="Enter Age"></td>
+    <td><select name="point1" size="1"><option value="choose" selected>--Wybierz--</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></td>
+   </tr>
+  </table>
   <input type="button" onclick="add_row();" value="ADD ROW">
   <input type="submit" name="submit_row" value="SUBMIT">
  </form>
@@ -144,5 +35,3 @@ function delete_row(rowno)
 </div>
 </body>
 </html>
-
-
