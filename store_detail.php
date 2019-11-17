@@ -5,6 +5,7 @@ if(isset($_POST['submit_row']))
     require_once 'login.php';
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die("Błąd krytyczny");	 
+ 
  $tableName = $_POST['tableName'];
  $nazwisko=$_POST['nazwisko'];
  $imie=$_POST['imie'];
