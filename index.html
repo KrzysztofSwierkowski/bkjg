@@ -6,9 +6,9 @@
 <script type="text/javascript">
 function add_row()
 {
- $rowno=$("#employee_table tr").length;
+ $rowno=$("#score_table tr").length;
  $rowno=$rowno+1;
- $("#employee_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='text' name='nazwisko[]' placeholder='Wpisz Nazwisko'></td><td><input type='text' name='imie[]'' placeholder='Wpisz Imię'></td><td><input type='text' name='klub[]' placeholder='Wpisz Klub'></td><td><input type='text' name='seria1[]' placeholder='Seria 1'></td><td><input type='text' name='seria2[]' placeholder='Seria 2'></td><td><input type='text' name='seria3[]' placeholder='Seria 3'></td><td><input type='text' name='seria4[]' placeholder='Seria 4'></td><td><input type='text' name='seria5[]' placeholder='Seria 5'></td><td><input type='text' name='seria6[]' placeholder='Seria 6'></td><td><input type='text' name='dziesiatkiW[]' placeholder='Dziesiątki wewn.'></td><td><input type='text' name='dziesiatki[]' placeholder='Dziesiątki'></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+ $("#score_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='text' name='nazwisko[]' placeholder='Wpisz Nazwisko'></td><td><input type='text' name='imie[]'' placeholder='Wpisz Imię'></td><td><input type='text' name='klub[]' placeholder='Wpisz Klub'></td><td><input type='text' name='seria1[]' placeholder='Seria 1'></td><td><input type='text' name='seria2[]' placeholder='Seria 2'></td><td><input type='text' name='seria3[]' placeholder='Seria 3'></td><td><input type='text' name='seria4[]' placeholder='Seria 4'></td><td><input type='text' name='seria5[]' placeholder='Seria 5'></td><td><input type='text' name='seria6[]' placeholder='Seria 6'></td><td><input type='text' name='dziesiatkiW[]' placeholder='Dziesiątki wewn.'></td><td><input type='text' name='dziesiatki[]' placeholder='Dziesiątki'></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
 }
 
 function delete_row(rowno)
@@ -39,7 +39,10 @@ function delete_row(rowno)
 
 <div id="form_div">
  <form method="post" action="store_detail.php">
-  <table id="employee_table" align=center>
+  <table id="score_table" align=center>
+          <tr id="row1">
+                <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów"></td>
+          </tr>
    <tr id="row1">
     <td><input type="text" name="nazwisko[]" placeholder="Wpisz Nazwisko"></td>
     <td><input type="text" name="imie[]" placeholder="Wpisz Imię"></td>
@@ -52,6 +55,7 @@ function delete_row(rowno)
     <td><input type="text" name="seria6[]" placeholder="Seria 6"></td>
     <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn."></td>
     <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki"></td>
+    
    </tr>
   </table>
   <input type="button" onclick="add_row();" value="Dodaj pozycje">
