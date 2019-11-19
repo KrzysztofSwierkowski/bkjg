@@ -37,6 +37,7 @@
 
       }
     }
+    
       echo    '</table>
       <input type="button" onclick="add_row();" value="Dodaj pozycje">
       <input type="submit" name="submit_row" value="ZAPISZ">
