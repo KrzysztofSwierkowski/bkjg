@@ -1,3 +1,19 @@
+<link href="form_style.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+function add_row()
+{
+ $rowno=$("#score_table tr").length;
+ $rowno=$rowno+1;
+ $("#score_table tr:last").after("<tr id='row"+$rowno+"'><td><input type='text' name='nazwisko[]' placeholder='Wpisz Nazwisko'></td><td><input type='text' name='imie[]'' placeholder='Wpisz Imię'></td><td><input type='text' name='klub[]' placeholder='Wpisz Klub'></td><td><input type='text' name='seria1[]' placeholder='Seria 1'></td><td><input type='text' name='seria2[]' placeholder='Seria 2'></td><td><input type='text' name='seria3[]' placeholder='Seria 3'></td><td><input type='text' name='seria4[]' placeholder='Seria 4'></td><td><input type='text' name='seria5[]' placeholder='Seria 5'></td><td><input type='text' name='seria6[]' placeholder='Seria 6'></td><td><input type='text' name='dziesiatkiW[]' placeholder='Dziesiątki wewn.'></td><td><input type='text' name='dziesiatki[]' placeholder='Dziesiątki'></td><td><input type='button' value='DELETE' onclick=delete_row('row"+$rowno+"')></td></tr>");
+}
+
+function delete_row(rowno)
+{
+ $('#'+rowno).remove();
+}
+</script>
+
 <?php
   require_once 'login.php';
 
@@ -12,15 +28,16 @@
     if ($result->num_rows > 0) {
       // output data of each row
 
-   echo   '<form method="post" action="store_detail.php">
-      <table id="score_table" align=center>
+   echo   '<form method="post" action="update_row.php">
+      <table id="update_row" align=center>
               <tr id="row1">
-                    <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów"></td>';
+             <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="zawody"></td>';
 
            while($row = $result->fetch_assoc()) {
         
-          echo '                </tr>
-          <tr id="row1">
+          echo ' 
+            </tr>
+            <tr id="row1">
             <td><input type="text" name="nazwisko[]" placeholder="Wpisz Nazwisko" value = ' . $row['nazwisko']. '></td>
             <td><input type="text" name="imie[]" placeholder="Wpisz Imię" value = ' . $row['imie']. '></td>
             <td><input type="text" name="klub[]" placeholder="Wpisz Klub" value = ' . $row['klub']. '></td>
@@ -33,14 +50,19 @@
             <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn." value = ' . $row['dziesiatkiW']. '></td>
             <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>
             
-          </tr>';
+            </tr>';
 
       }
+
     }
     
       echo    '</table>
       <input type="button" onclick="add_row();" value="Dodaj pozycje">
-      <input type="submit" name="submit_row" value="ZAPISZ">
-       </form>';
+      <input type="submit" name="update_row" value="UPDATE">
+      </form>
+      
+      
+      
+      ';
 
   ?>
