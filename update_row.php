@@ -27,7 +27,7 @@ if(isset($_POST['update_row']))
             
         $tableName = $_POST['tableName'];
 
-
+            $id=$_POST['id'];
           $nazwisko=$_POST['nazwisko'];
           $imie=$_POST['imie'];
           $klub=$_POST['klub'];
@@ -45,10 +45,17 @@ if(isset($_POST['update_row']))
           {
           if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
           {
-          $query = "UPDATE $tableName SET('$nazwisko[$i]','$imie[$i]','$klub[$i]','$seria1[$i]','$seria2[$i]','$seria3[$i]','$seria4[$i]','$seria5[$i]','$seria6[$i]','$dziesiatkiW[$i]','$dziesiatki[$i]')";	 
-          $result = $conn->query($query);
-          echo '<br>q: -------- <br>';
+             
+          $query = "UPDATE $tableName SET nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
+                     seria1 = '$seria1[$i]', seria2 = '$seria2[$i]' , seria3 = '$seria3[$i]' , seria4 = '$seria4[$i]' 
+                     , seria5 = '$seria5[$i]' , seria6 = '$seria6[$i]' , dziesiatkiW = '$dziesiatkiW[$i]' 
+                     , dziesiatki = '$dziesiatki[$i]' where id=$id";	 
+       
+       echo '<br>q: -------- <br>';
           echo $query;
+       
+          $result = $conn->query($query);
+       
           echo '<br>';
           echo '<br>R2: -------- <br>';
           echo $result;

@@ -22,7 +22,7 @@ function delete_row(rowno)
 
     $tableName = 'zawody';//$_POST['tableName'];
 
-   $sql = "SELECT nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
+   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -38,6 +38,7 @@ function delete_row(rowno)
           echo ' 
             </tr>
             <tr id="row1">
+            <td><input type="hidden" name="id[]" value='. $row['id'].'</td> 
             <td><input type="text" name="nazwisko[]" placeholder="Wpisz Nazwisko" value = ' . $row['nazwisko']. '></td>
             <td><input type="text" name="imie[]" placeholder="Wpisz Imię" value = ' . $row['imie']. '></td>
             <td><input type="text" name="klub[]" placeholder="Wpisz Klub" value = ' . $row['klub']. '></td>
