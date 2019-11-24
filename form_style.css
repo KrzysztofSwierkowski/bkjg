@@ -5,7 +5,7 @@ body
  text-align:center;
  width:100%;
  font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
- background-color:#F9E79F;
+ background-color:#393D41;
 }
 #wrapper
 {
@@ -24,9 +24,9 @@ body
 {
  font-size:18px;
 }
-#employee_table input[type="text"]
+#score_table input[type="text"]
 {
- width:120px;
+ width:100px;
  height:35px;
  padding-left:10px;
 }
@@ -51,3 +51,25 @@ body
  border-radius:3px;
  color:white;
 }
+
+#wynik
+{
+    width:100px;
+    height:25px;
+    padding-left:10px;
+    padding-right: 10px;
+ color: rgb(97, 78, 0);
+ background: white;
+ border-collapse: collapse;
+ border:2px;
+ border: #D4AC0D;
+}
+
+#top {
+    padding: 50px;
+    color: #FFFFFF;
+    background: #393D41;
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #FFF, 0 0 20px #49ff18, 0 0 30px #49FF18, 0 0 40px #49FF18, 0 0 55px #49FF18, 0 0 75px #49ff18;
+    color: #FFFFFF;
+    background: #393D41;
+    }

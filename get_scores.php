@@ -50,6 +50,7 @@ function delete_row(rowno)
             <td><input type="text" name="seria6[]" placeholder="Seria 6" value = ' . $row['seria6']. '></td>
             <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn." value = ' . $row['dziesiatkiW']. '></td>
             <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>
+            <td>Wynik</td>
             
             </tr>';
 
