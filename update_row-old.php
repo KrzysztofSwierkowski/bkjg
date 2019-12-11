@@ -41,17 +41,16 @@ if(isset($_POST['update_row']))
           $dziesiatki=$_POST['dziesiatki'];
 
  
-          foreach ($id as $key => $id) {
-              # code...($i=0;$i<count($id);$i++)
-          
+          for($i=0;$i<count($id);$i++)
+          {
           if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
           {
-            
+            $idCount = intval($id->id);
 
           $query = "UPDATE $tableName SET nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
                      seria1 = '$seria1[$i]', seria2 = '$seria2[$i]' , seria3 = '$seria3[$i]' , seria4 = '$seria4[$i]' 
                      , seria5 = '$seria5[$i]' , seria6 = '$seria6[$i]' , dziesiatkiW = '$dziesiatkiW[$i]' 
-                     , dziesiatki = '$dziesiatki[$i]' where id='.$key ";	 
+                     , dziesiatki = '$dziesiatki[$i]' where id=$idCount ";	 
        
        echo '<br>q: -------- <br>';
           echo $query;
