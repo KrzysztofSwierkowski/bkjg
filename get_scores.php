@@ -52,6 +52,7 @@ function delete_row(rowno)
             <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>
             <td>Wynik</td>
             
+            
             </tr>';
 
       }
@@ -60,7 +61,7 @@ function delete_row(rowno)
     
       echo    '</table>
       <input type="button" onclick="add_row();" value="Dodaj pozycje">
-      <input type="submit" name="update_row" value="UPDATE">
+      <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
       
       
