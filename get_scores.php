@@ -38,8 +38,8 @@ function delete_row(rowno)
           echo ' 
             </tr>
             <tr id="row1">
-            <td><input type="hidden" name="id[]" value='. $row['id'].'</td> 
-            <td><input type="text" name="nazwisko[]" placeholder="Wpisz Nazwisko" value = ' . $row['nazwisko']. '></td>
+            <td><input type="hidden" name="id[]" value='. $row['id'].' ></td> 
+            <td><input type="text" name="nazwisko[]" placeholder="Wpisz Nazwisko" value = ' . $row['nazwisko']. ' ></td>
             <td><input type="text" name="imie[]" placeholder="Wpisz Imię" value = ' . $row['imie']. '></td>
             <td><input type="text" name="klub[]" placeholder="Wpisz Klub" value = ' . $row['klub']. '></td>
             <td><input type="text" name="seria1[]" placeholder="Seria 1" value = ' . $row['seria1']. '></td>
@@ -50,7 +50,7 @@ function delete_row(rowno)
             <td><input type="text" name="seria6[]" placeholder="Seria 6" value = ' . $row['seria6']. '></td>
             <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn." value = ' . $row['dziesiatkiW']. '></td>
             <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>
-            <td>Wynik</td>
+            
             
             
             </tr>';
