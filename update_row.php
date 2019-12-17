@@ -53,7 +53,7 @@ if(isset($_POST['update_row']))
            // {
             
             
-          $query = "UPDATE $tableName SET nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
+          $query = "UPDATE $tableName SET NULL , nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
                      seria1 = '$seria1[$i]', seria2 = '$seria2[$i]' , seria3 = '$seria3[$i]' , seria4 = '$seria4[$i]' 
                      , seria5 = '$seria5[$i]' , seria6 = '$seria6[$i]' , dziesiatkiW = '$dziesiatkiW[$i]' 
                      , dziesiatki = '$dziesiatki[$i]' where id=$id[$i] ";
