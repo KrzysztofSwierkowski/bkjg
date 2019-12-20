@@ -64,7 +64,7 @@ if(isset($_POST['submit_row']))
           {
           if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
           {
-          $query = "insert into $tableName values( NULL , '$nazwisko[$i]','$imie[$i]','$klub[$i]','$seria1[$i]','$seria2[$i]','$seria3[$i]','$seria4[$i]','$seria5[$i]','$seria6[$i]','$dziesiatkiW[$i]','$dziesiatki[$i]')";	 
+          $query = "insert into $tableName values( NULL , '$nazwisko[$i]','$imie[$i]','$klub[$i]','$seria1[$i]','$seria2[$i]','$seria3[$i]','$seria4[$i]','$seria5[$i]','$seria6[$i]','$dziesiatkiW[$i]','$dziesiatki[$i]' )";	 
           $result = $conn->query($query);
           echo '<br>R2: -------- <br>';
           echo $result;
