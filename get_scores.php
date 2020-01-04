@@ -29,9 +29,9 @@ function delete_row(rowno)
     if ($result->num_rows > 0) {
       // output data of each row
 ?>
-
+<div id="form_div">
    <form method="post" action="update_row.php">
-      <table id="update_row" align=center>
+      <table id="score_table" align=center>
               <tr id="row1">
              <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="zawody"></td>
 <?php
@@ -51,20 +51,21 @@ function delete_row(rowno)
             <td><input type="text" name="seria5[]" placeholder="Seria 5" value = ' . $row['seria5']. '></td>
             <td><input type="text" name="seria6[]" placeholder="Seria 6" value = ' . $row['seria6']. '></td>
             <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn." value = ' . $row['dziesiatkiW']. '></td>
-            <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>
-            
-            
-            
-            </tr>';
+            <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>';
+            echo "<td><a href='delete.php?id=".$row['id']."'><input type='button' value='USUŃ'></a></td>";
+                       
+            echo "</tr>";
 
       }
 
     }
+
+  
     ?>
       </table>
-      <input type="button" onclick="add_row();" value="Dodaj pozycje">
       <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
+  </div>
         
       
 

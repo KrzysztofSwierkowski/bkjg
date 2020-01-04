@@ -1,3 +1,5 @@
+<link href="form_style.css" type="text/css" rel="stylesheet"/>
+<div id="wrapper">
 <?php
 
 require_once 'login.php';
@@ -10,8 +12,12 @@ require_once 'login.php';
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
     $result = $conn->query($sql);
     
-echo "<table border='1'>
-<tr>
+echo '<div id="form_div">';
+    echo '<table class="cinereousTable" align=center border="1">';
+  echo '<tr id="row1">';
+echo "
+<thead>
+<th>Miejsce</th>
 <th>nazwisko</th>
 <th>imie</th>
 <th>klub</th>
@@ -26,13 +32,16 @@ echo "<table border='1'>
 <th>Wynik</th>
 
 
-</tr>";
+</tr>
+</thead>";
 
+$place=1;  
 while($row = mysqli_fetch_array($result))
 {
-    
+       
 echo "<tr>";
 //echo "<td>" . $row['id']. "</td>" ;
+echo "<td>" .$place. "</td>";
 echo "<td>" . $row['nazwisko']. "</td>";
 echo "<td>" . $row['imie']. "</td>";
 echo "<td>" . $row['klub']. "</td>";
@@ -44,10 +53,14 @@ echo "<td>" . $row['seria5']. "</td>";
 echo "<td>" . $row['seria6']. "</td>";
 echo "<td>" . $row['dziesiatkiW']. "</td>";
 echo "<td>" . $row['dziesiatki']. "</td>";
-//echo "<td>" . $row['total']. "</td>";
-            
+//echo "<td>" . $row['total']. "</td>"; 
 echo "</tr>";
+
+$place++; 
+
 }
 echo "</table>";
+echo "</div>"
 
 ?>
+</div>

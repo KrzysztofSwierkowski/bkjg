@@ -45,12 +45,7 @@ if(isset($_POST['update_row']))
          {
           if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
           {
-        //   echo '<br> id wynosi :  ';
-        //    echo $id[$i];
 
-        
-            //foreach($_POST["id"] as $key)
-           // {
             
             
           $query = "UPDATE $tableName SET nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
@@ -58,18 +53,11 @@ if(isset($_POST['update_row']))
                      , seria5 = '$seria5[$i]' , seria6 = '$seria6[$i]' , dziesiatkiW = '$dziesiatkiW[$i]' 
                      , dziesiatki = '$dziesiatki[$i]' where id=$id[$i] ";
                      
-           // }
-       echo '   <br>q: -------- <br>';
-          echo $query;
+           
        
-         // $result = $conn->query($query);
-       
-          echo '<br>';
-          echo '<br>R2: -------- <br>';
-      //    echo $result;
-
           if ($conn->query($query) === TRUE) {
             echo "Record updated successfully";
+            
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -77,7 +65,7 @@ if(isset($_POST['update_row']))
          // if (!$result) echo "<br><br>Instrukcja nie powiodła się.<br><br>";
          //  elseif ($result) echo "Instrukcja powiodła się.<br><br>";
           }
-
+          header('Location: get_scores.php');
        }
 
 }
