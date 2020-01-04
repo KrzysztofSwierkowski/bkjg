@@ -65,6 +65,7 @@ function delete_row(rowno)
       </table>
       <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
+      <a href ='index.html'><input type="submit" name="index.html" value="DODAJ NOWEGO UCZESTNIKA"></a>
   </div>
         
       
