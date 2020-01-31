@@ -1,8 +1,6 @@
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-
-
 function add_row()
 {
  $rowno=$("#score_table tr").length;
@@ -15,19 +13,38 @@ function delete_row(rowno)
  $('#'+rowno).remove();
 }
 </script>
-
 <?php
 
-if(isset($_POST['update_row']))
+if(isset($_POST['submit_row']))
 {
 
   require_once 'login.php';
   $conn = new mysqli($hn, $un, $pw, $db);
   if ($conn->connect_error) die("Błąd krytyczny");
-            
-        $tableName = $_POST['tableName'];
 
-          $id=$_POST["id"];
+  $tableName = $_POST['tableName'];
+    
+
+  $sql = "CREATE TABLE $tableName (
+   
+     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     nazwisko varchar(255),
+     imie varchar(255),
+     klub varchar(255),
+     seria1 varchar(255),
+     seria2 varchar(255),
+     seria3 varchar(255),
+     seria4 varchar(255),
+     seria5 varchar(255),
+     seria6 varchar(255),
+     dziesiatkiW varchar(255),
+     dziesiatki varchar(255));
+        ";	
+ 
+       $result = $conn->query($sql);
+
+        
+
           $nazwisko=$_POST['nazwisko'];
           $imie=$_POST['imie'];
           $klub=$_POST['klub'];
@@ -41,33 +58,19 @@ if(isset($_POST['update_row']))
           $dziesiatki=$_POST['dziesiatki'];
 
  
-          for($i=0;$i<count($id);$i++)
-         {
+          for($i=0;$i<count($nazwisko);$i++)
+          {
           if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
           {
-
-            
-            
-          $query = "UPDATE $tableName SET nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
-                     seria1 = '$seria1[$i]', seria2 = '$seria2[$i]' , seria3 = '$seria3[$i]' , seria4 = '$seria4[$i]' 
-                     , seria5 = '$seria5[$i]' , seria6 = '$seria6[$i]' , dziesiatkiW = '$dziesiatkiW[$i]' 
-                     , dziesiatki = '$dziesiatki[$i]' where id=$id[$i] ";
-                     
-           
-       
-          if ($conn->query($query) === TRUE) {
-            echo "Record updated successfully";
-            
-        } else {
-            echo "Error updating record: " . $conn->error;
-        }
-          
-         // if (!$result) echo "<br><br>Instrukcja nie powiodła się.<br><br>";
-         //  elseif ($result) echo "Instrukcja powiodła się.<br><br>";
+          $query = "insert into $tableName values( NULL , '$nazwisko[$i]','$imie[$i]','$klub[$i]','$seria1[$i]','$seria2[$i]','$seria3[$i]','$seria4[$i]','$seria5[$i]','$seria6[$i]','$dziesiatkiW[$i]','$dziesiatki[$i]' )";	 
+          $result = $conn->query($query);
+          if (!$result) echo "Błąd Wpisz nazwę";
+           elseif ($result) echo "<script>window.location.href = '/get_scores.php';</script>";;
           }
-          echo "<script>window.location.href = '/get_scores.php';</script>";
-       }
 
+        }
+      
+    
 }
  
 ?>

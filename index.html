@@ -4,6 +4,8 @@
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
+
+
 function add_row()
 {
  $rowno=$("#score_table tr").length;
@@ -29,7 +31,7 @@ function delete_row(rowno)
  <form method="post" action="store_detail.php">
   <table id="score_table" align=center>
           <tr id="row1">
-                <td><input type="text" name="tableName" placeholder="Nazwa zawodów"></td>
+                <td><input type="text" name="tableName" placeholder="Nazwa zawodów" value="zawody"></td>
           </tr>
    <tr id="row1">
     <td><input type="text" name="nazwisko[]" placeholder="Nazwisko"></td>

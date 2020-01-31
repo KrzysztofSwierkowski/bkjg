@@ -16,10 +16,9 @@ if (!$conn) {
 
 // sql to delete a record
 $sql = "DELETE FROM zawody WHERE id = $id"; 
-
 if (mysqli_query($conn, $sql)) {
     mysqli_close($conn);
-    header('Location: get_scores.php'); //If book.php is your main page where you list your all records
+    echo "<script>window.location.href = '/get_scores.php';</script>";
     exit;
 } else {
     echo "Error deleting record";
