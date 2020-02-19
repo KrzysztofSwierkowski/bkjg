@@ -22,8 +22,8 @@ if(isset($_POST['submit_row']))
   $conn = new mysqli($hn, $un, $pw, $db);
   if ($conn->connect_error) die("Błąd krytyczny");
 
-  $tableName = $_POST['tableName'];
-    
+ //$tableName = $_POST['tableName'];
+  $tableName = 'zawody';//$_POST['tableName'];
 
   $sql = "CREATE TABLE $tableName (
    
@@ -38,7 +38,8 @@ if(isset($_POST['submit_row']))
      seria5 varchar(255),
      seria6 varchar(255),
      dziesiatkiW varchar(255),
-     dziesiatki varchar(255));
+     dziesiatki varchar(255);
+     wynik varchar(255));
         ";	
  
        $result = $conn->query($sql);
@@ -56,15 +57,15 @@ if(isset($_POST['submit_row']))
           $seria6=$_POST['seria6'];
           $dziesiatkiW=$_POST['dziesiatkiW'];
           $dziesiatki=$_POST['dziesiatki'];
-
+         $wynik=null; 
  
           for($i=0;$i<count($nazwisko);$i++)
           {
           if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
           {
-          $query = "insert into $tableName values( NULL , '$nazwisko[$i]','$imie[$i]','$klub[$i]','$seria1[$i]','$seria2[$i]','$seria3[$i]','$seria4[$i]','$seria5[$i]','$seria6[$i]','$dziesiatkiW[$i]','$dziesiatki[$i]' )";	 
+          $query = "insert into $tableName values( NULL , '$nazwisko[$i]','$imie[$i]','$klub[$i]','$seria1[$i]','$seria2[$i]','$seria3[$i]','$seria4[$i]','$seria5[$i]','$seria6[$i]','$dziesiatkiW[$i]','$dziesiatki[$i]','$wynik' )";	 
           $result = $conn->query($query);
-          if (!$result) echo "Błąd Wpisz nazwę";
+          if (!$result) echo "Błąd";
            elseif ($result) echo "<script>window.location.href = '/get_scores.php';</script>";;
           }
 

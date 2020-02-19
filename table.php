@@ -8,11 +8,14 @@ require_once 'login.php';
     if ($conn->connect_error) die("Błąd krytyczny");
 
     $tableName = 'zawody';//$_POST['tableName'];
+    
+    $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
+    $result = $conn->query($sql);
 
-   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
+   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki, wynik FROM $tableName ORDER BY wynik DESC , dziesiatkiW ASC";
     $result = $conn->query($sql);
     
-echo '<div id="form_div">';
+    echo '<div id="form_div">';
     echo '<table class="cinereousTable" align=center border="1">';
   echo '<tr id="row1">';
 echo "
@@ -53,6 +56,7 @@ echo "<td>" . $row['seria5']. "</td>";
 echo "<td>" . $row['seria6']. "</td>";
 echo "<td>" . $row['dziesiatkiW']. "</td>";
 echo "<td>" . $row['dziesiatki']. "</td>";
+echo "<td>" . $row['wynik']. "</td>";
 //echo "<td>" . $row['total']. "</td>"; 
 echo "</tr>";
 

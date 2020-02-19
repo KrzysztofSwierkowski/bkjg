@@ -16,14 +16,15 @@ $tableName = 'zawody';//$_POST['tableName'];
     nazwisko varchar(255),
     imie varchar(255),
     klub varchar(255),
-    seria1 varchar(255),
-    seria2 varchar(255),
-    seria3 varchar(255),
-    seria4 varchar(255),
-    seria5 varchar(255),
-    seria6 varchar(255),
-    dziesiatkiW varchar(255),
-    dziesiatki varchar(255));
+    seria1 Tinyint,
+    seria2 Tinyint,
+    seria3 Tinyint,
+    seria4 Tinyint,
+    seria5 Tinyint,
+    seria6 Tinyint,
+    dziesiatkiW Tinyint,
+    dziesiatki Tinyint,
+    wynik varchar(255));
        ";	
 
      $result = $conn->query($sql);
