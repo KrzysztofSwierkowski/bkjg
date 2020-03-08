@@ -1,3 +1,19 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: logon.php");
+    exit;
+}
+?>
+//jeszcze nie działa 
+
+
+
+
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -18,7 +34,7 @@ function delete_row(rowno)
  $('#'+rowno).remove();
 }
 </script>
-</head>
+
 <body>
 
         <div id="top">TABELA WYNIK&Oacute;W</div>   
@@ -31,7 +47,7 @@ function delete_row(rowno)
  <form method="post" action="store_detail.php">
   <table id="score_table" align=center>
           <tr id="row1">
-                <td><input type="text" name="tableName" placeholder="Nazwa zawodów" value="zawody"></td>
+                <td><label>PISTOLET</label></td>
           </tr>
    <tr id="row1">
     <td><input type="text" name="nazwisko[]" placeholder="Nazwisko"></td>

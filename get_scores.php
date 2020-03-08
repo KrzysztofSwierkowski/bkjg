@@ -1,3 +1,4 @@
+
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
@@ -21,7 +22,7 @@ function delete_row(rowno)
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die("Błąd krytyczny");
 
-    $tableName = 'zawody';//$_POST['tableName'];
+    $tableName = 'pistolet';//$_POST['tableName'];
 
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
     $result = $conn->query($sql);
@@ -33,7 +34,7 @@ function delete_row(rowno)
    <form method="post" action="update_row.php">
       <table id="score_table" align=center>
               <tr id="row1">
-             <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="zawody"></td>
+             <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="pistolet"></td>
 <?php
            while($row = $result->fetch_assoc()) {
         
@@ -65,7 +66,7 @@ function delete_row(rowno)
       </table>
       <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
-      <a href ='index.html'><input type="submit" name="index.html" value="DODAJ NOWEGO UCZESTNIKA"></a>
+      <a href ='index.php'><input type="submit" name="index.php" value="DODAJ NOWEGO UCZESTNIKA"></a>
   </div>
         
       

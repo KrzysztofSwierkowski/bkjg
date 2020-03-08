@@ -7,7 +7,7 @@ require_once 'login.php';
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die("Błąd krytyczny");
 
-    $tableName = 'zawody';//$_POST['tableName'];
+    $tableName = 'pistolet';//$_POST['tableName'];
     
     $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
     $result = $conn->query($sql);
@@ -37,7 +37,7 @@ echo "
 
 </tr>
 </thead>";
-
+echo "PISTOLET";
 $place=1;  
 while($row = mysqli_fetch_array($result))
 {

@@ -23,7 +23,7 @@ if(isset($_POST['submit_row']))
   if ($conn->connect_error) die("Błąd krytyczny");
 
  //$tableName = $_POST['tableName'];
-  $tableName = 'zawody';//$_POST['tableName'];
+  $tableName = 'pistolet';//$_POST['tableName'];
 
   $sql = "CREATE TABLE $tableName (
    

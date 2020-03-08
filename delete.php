@@ -6,7 +6,7 @@ $id = $_GET['id'];
 //Create query based on the ID passed from you table
 //query : delete where Staff_id = $id
 // on success delete : redirect the page to original page using header() method
-$dbname = "zawody";
+$dbname = "pistolet";
 
   $conn = new mysqli($hn, $un, $pw, $db);
 // Check connection
@@ -15,7 +15,7 @@ if (!$conn) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM zawody WHERE id = $id"; 
+$sql = "DELETE FROM pistolet WHERE id = $id"; 
 if (mysqli_query($conn, $sql)) {
     mysqli_close($conn);
     echo "<script>window.location.href = '/get_scores.php';</script>";
