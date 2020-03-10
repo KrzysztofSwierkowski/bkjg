@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: logon.php");
+    exit;
+}
+?>
 
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>

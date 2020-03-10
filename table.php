@@ -12,7 +12,7 @@ require_once 'login.php';
     $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
     $result = $conn->query($sql);
 
-   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki, wynik FROM $tableName ORDER BY wynik DESC , dziesiatkiW ASC";
+   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki, wynik FROM $tableName ORDER BY wynik DESC , dziesiatkiW DESC, dziesiatki DESC"; //ASC - sort malejące
     $result = $conn->query($sql);
     
     echo '<div id="form_div">';
