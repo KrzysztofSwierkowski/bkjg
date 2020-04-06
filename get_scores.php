@@ -41,15 +41,29 @@ function delete_row(rowno)
       // output data of each row
 ?>
 <div id="form_div">
+
    <form method="post" action="update_row.php">
-      <table id="score_table" align=center>
+      <table class="score_table">
               <tr id="row1">
-             <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="pistolet"></td>
+              <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="pistolet"></td>
+             </tr>
+             <th><input type="hidden"></th>
+             <th>Nazwisko</th>
+             <th>Imię</th>
+             <th>Klub</th>
+             <th>Seria 1</th>
+             <th>Seria 2</th>
+             <th>Seria 3</th>
+             <th>Seria 4</th>
+             <th>Seria 5</th>
+             <th>Seria 6</th>
+            <th>Dziesiątki wew</th>
+            <th>Dziesiątki</th>
 <?php
            while($row = $result->fetch_assoc()) {
         
           echo ' 
-            </tr>
+            
             <tr id="row1">
             <td><input type="hidden" name="id[]" value='. $row['id'].' ></td> 
             <td><input type="text" name="nazwisko[]" placeholder="Wpisz Nazwisko" value = ' . $row['nazwisko']. ' ></td>

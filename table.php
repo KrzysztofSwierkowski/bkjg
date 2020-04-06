@@ -14,34 +14,34 @@ require_once 'login.php';
 
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki, wynik FROM $tableName ORDER BY wynik DESC , dziesiatkiW DESC, dziesiatki DESC"; //ASC - sort malejące
     $result = $conn->query($sql);
-    
+    echo "<h1>Ustawiczne strzelanie Psp60 - sesja 1 / 2020 r.</h1>";
     echo '<div id="form_div">';
     echo '<table class="cinereousTable" align=center border="1">';
   echo '<tr id="row1">';
 echo "
 <thead>
 <th>Miejsce</th>
-<th>nazwisko</th>
-<th>imie</th>
-<th>klub</th>
-<th>seria1</th>
-<th>seria2</th>
-<th>seria3</th>
-<th>seria4</th>
-<th>seria5</th>
-<th>seria6</th>
+<th>Nazwisko</th>
+<th>Imię</th>
+<th>Klub</th>
+<th>Seria 1</th>
+<th>Seria 2</th>
+<th>Seria 3</th>
+<th>Seria 4</th>
+<th>Seria 5</th>
+<th>Seria 6</th>
 <th>X</th>
-<th>ilość 10</th>
+<th>Ilość 10</th>
 <th>Wynik</th>
 
 
 </tr>
 </thead>";
-echo "PISTOLET";
+
 $place=1;  
 while($row = mysqli_fetch_array($result))
 {
-       
+
 echo "<tr>";
 //echo "<td>" . $row['id']. "</td>" ;
 echo "<td>" .$place. "</td>";
@@ -68,3 +68,4 @@ echo "</div>"
 
 ?>
 </div>
+

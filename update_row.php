@@ -44,8 +44,8 @@ if(isset($_POST['update_row']))
  
           for($i=0;$i<count($id);$i++)
          {
-          if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
-          {
+          //if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
+          //{
 
             
             
@@ -59,12 +59,12 @@ if(isset($_POST['update_row']))
           if ($conn->query($query) === TRUE) {
             echo "Record updated successfully";
             
-        } else {
-            echo "Error updating record: " . $conn->error;
-        }
+        //} else {
+         //   echo "Error updating record: " . $conn->error;
+        //}
           
-         // if (!$result) echo "<br><br>Instrukcja nie powiodła się.<br><br>";
-         //  elseif ($result) echo "Instrukcja powiodła się.<br><br>";
+          if (!$result) echo "<br><br>Instrukcja nie powiodła się.<br><br>";
+           elseif ($result) echo "Instrukcja powiodła się.<br><br>";
           }
           echo "<script>window.location.href = '/get_scores.php';</script>";
        }
