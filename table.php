@@ -8,7 +8,7 @@ require_once 'login.php';
     if ($conn->connect_error) die("Błąd krytyczny");
 
     $tableName = 'pistolet';//$_POST['tableName'];
-    
+    //Przenieść do update poniższe 
     $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
     $result = $conn->query($sql);
 
