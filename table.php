@@ -9,13 +9,22 @@ require_once 'login.php';
 
     $tableName = 'pistolet';//$_POST['tableName'];
     //Przenieść do update poniższe 
-    $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
-    $result = $conn->query($sql);
+   // $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
+    //$result = $conn->query($sql);
+    //$time = "SELECT update_time FROM information_schema.tables WHERE table_name = 'pistolet'";
+    //$sql = "SELECT update_time FROM information_schema.tables WHERE table_name = 'pistolet'";
+ // $rtime = $conn->query($sql);
 
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki, wynik FROM $tableName ORDER BY wynik DESC , dziesiatkiW DESC, dziesiatki DESC"; //ASC - sort malejące
     $result = $conn->query($sql);
-    echo "<h1>Ustawiczne strzelanie Psp60 - sesja 1 / 2020 r.</h1>";
+     
     echo '<div id="form_div">';
+    echo '<div id="banner">';
+    echo '<img src="img\BKJG.png">';
+    echo '<img src="img\PZSS.png">';
+    echo '</div>';
+    echo "<h3>Ustawiczne strzelanie Psp60 - sesja 1 / 2020 r.</h3>";
+    
     echo '<table class="cinereousTable" align=center border="1">';
   echo '<tr id="row1">';
 echo "
@@ -64,7 +73,10 @@ $place++;
 
 }
 echo "</table>";
-echo "</div>"
+echo "</div>";
+
+
+
 
 ?>
 </div>

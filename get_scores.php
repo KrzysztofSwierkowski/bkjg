@@ -32,11 +32,27 @@ function delete_row(rowno)
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die("Błąd krytyczny");
 
-    $tableName = 'pistolet';//$_POST['tableName'];
+
+    echo '   <form action="get_scores.php" method="post"> ';
+echo ' <input type="radio" name="tableName" ';
+ if (isset($tableName) && $tableName=="pistolet") echo "checked";
+echo 'value="pistolet">Pistolet
+<input type="radio" name="tableName" ';
+if (isset($tableName) && $tableName=="pistolet2") echo "checked";
+echo 'value="Pistolet2">Pistolet2
+<input type="radio" name="tableName"';
+if (isset($tableName) && $tableName=="karabin") echo "checked";
+echo 'value="karabin">Karabin
+<input type="submit" name="tableName">
+</form>';
+
+    //$tableName = $_SESSION['tableName'];
+    $tableName = 'pistolet';
 
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
     $result = $conn->query($sql);
 
+  
     if ($result->num_rows > 0) {
       // output data of each row
 ?>
@@ -45,7 +61,7 @@ function delete_row(rowno)
    <form method="post" action="update_row.php">
       <table class="score_table">
               <tr id="row1">
-              <td><input type="text" name="tableName" placeholder="Wpisz nową nazwę zawodów" value="pistolet"></td>
+            
              </tr>
              <th><input type="hidden"></th>
              <th>Nazwisko</th>
@@ -82,12 +98,15 @@ function delete_row(rowno)
             echo "</tr>";
 
       }
-
+    //Przenieść do update poniższe 
+    $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
+    $result = $conn->query($sql);
     }
 
   
     ?>
       </table>
+      <input type="hidden" name="update_row" value="<?php $tableName ?>" />
       <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
       <a href ='index.php'><input type="submit" name="index.php" value="DODAJ NOWEGO UCZESTNIKA"></a>

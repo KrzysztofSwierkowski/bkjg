@@ -7,9 +7,34 @@ body
  font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
  background-color:#fcf9ef;
 }
-h1{
+
+#banner {
+  width: 100%;
+  height: 20vh;
   
 }
+
+h3 {
+  
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+    word-spacing: 0.4px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: underline solid rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+    
+}
+
+#banner img {
+  
+  height: 20vh;
+  
+}
+
 #wrapper
 {
  margin:0 auto;

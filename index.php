@@ -22,6 +22,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 <script type="text/javascript">
 
 
+
+
 function add_row()
 {
  $rowno=$("#score_table tr").length;
@@ -41,13 +43,11 @@ function delete_row(rowno)
         
 <div id="wrapper">
 
-
-
 <div id="form_div">
  <form method="post" action="store_detail.php">
   <table id="score_table" align=center>
           <tr id="row1">
-                <td><label>PISTOLET</label></td>
+                <td><label><?PHP $_POST['tableName']?></label></td>
           </tr>
    <tr id="row1">
     <td><input type="text" name="nazwisko[]" placeholder="Nazwisko"></td>
@@ -65,10 +65,28 @@ function delete_row(rowno)
     
    </tr>
   </table>
+  <?php
+echo ' <input type="radio" name="tableName" ';
+ if (isset($tableName) && $tableName=="pistolet") echo "checked";
+echo 'value="pistolet">Pistolet
+<input type="radio" name="tableName" ';
+if (isset($tableName) && $tableName=="pistolet2") echo "checked";
+echo 'value="Pistolet2">Pistolet2
+<input type="radio" name="tableName"';
+if (isset($tableName) && $tableName=="karabin") echo "checked";
+echo 'value="karabin">Karabin';
+
+//$_SESSION['tableName'] = $tableName;
+?>
+
+
+
   <input type="button" onclick="add_row();" value="Dodaj pozycje">
+  <input type="hidden" name="submit_row" value="<?php $tableName ?>" />
   <input type="submit" name="submit_row" value="ZAPISZ">
  </form>
  <form action="get_scores.php">
+ <input type="hidden" name="get_scores" value="<?php $tableName ?>" />
         <input type="submit" name="get_scores" value="Tabela wyników">
       </form>
  
