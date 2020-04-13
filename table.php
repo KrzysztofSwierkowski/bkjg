@@ -1,13 +1,19 @@
-<link href="form_style.css" type="text/css" rel="stylesheet"/>
-<div id="wrapper">
 <?php
-
+require_once 'session_start.php';
 require_once 'login.php';
+
+echo '<div id="banner">';
+echo '<img src="img\BKJG.png">';
+echo "<h3 >Ustawiczne strzelanie Psp60 <br> sesja 1 / 2020 r.</h3>";
+echo '<img src="img\PZSS.png">';
+echo '</div>';
+//echo "<h3>Ustawiczne strzelanie Psp60 <br> sesja 1 / 2020 r.</h3>";
 
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die("Błąd krytyczny");
 
-    $tableName = 'pistolet';//$_POST['tableName'];
+    $tableName = 'pistolet';
+    //$tableName = $_SESSION['tableName'];
     //Przenieść do update poniższe 
    // $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
     //$result = $conn->query($sql);
@@ -15,15 +21,13 @@ require_once 'login.php';
     //$sql = "SELECT update_time FROM information_schema.tables WHERE table_name = 'pistolet'";
  // $rtime = $conn->query($sql);
 
-   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki, wynik FROM $tableName ORDER BY wynik DESC , dziesiatkiW DESC, dziesiatki DESC"; //ASC - sort malejące
+   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, wynik, dziesiatki, dziesiatkiW FROM $tableName ORDER BY wynik DESC , dziesiatkiW DESC, dziesiatki DESC"; //ASC - sort malejące
     $result = $conn->query($sql);
-     
-    echo '<div id="form_div">';
-    echo '<div id="banner">';
-    echo '<img src="img\BKJG.png">';
-    echo '<img src="img\PZSS.png">';
-    echo '</div>';
-    echo "<h3>Ustawiczne strzelanie Psp60 - sesja 1 / 2020 r.</h3>";
+    echo'<link href="form_style.css" type="text/css" rel="stylesheet"/>';
+    echo'<div id="wrapper">';
+    //echo '<div id="form_div">';
+    
+
     
     echo '<table class="cinereousTable" align=center border="1">';
   echo '<tr id="row1">';
@@ -39,10 +43,9 @@ echo "
 <th>Seria 4</th>
 <th>Seria 5</th>
 <th>Seria 6</th>
-<th>X</th>
-<th>Ilość 10</th>
 <th>Wynik</th>
-
+<th>Ilość 10</th>
+<th>X</th>
 
 </tr>
 </thead>";
@@ -73,7 +76,7 @@ $place++;
 
 }
 echo "</table>";
-echo "</div>";
+//echo "</div>";
 
 
 

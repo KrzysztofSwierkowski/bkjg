@@ -1,13 +1,24 @@
 <?php
+require_once 'session_start.php';
+require_once 'login.php';
+//$tableName = $_SESSION['tableName'];
 // Initialize the session
-session_start();
+
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: logon.php");
     exit;
 }
+
+if (isset($_POST['Submit'])) { 
+  $_SESSION['tableName'] = $_POST['tableName'];
+  //header('Location: xampp/Aptana/BDproj2/addp.php');
+} 
+
 ?>
+
+
 
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -26,35 +37,34 @@ function delete_row(rowno)
 }
 </script>
 
+<form method="post" action="">
+   <input type="radio" name="tableName" value="pistolet"/>Pistolet bocznego zapłonu
+   <input type="radio" name="tableName" value="pistolet2"/>Pistolet centralnego zapłonu  
+   <input type="radio" name="tableName" value="karabin"/>Karabin   
+   <input type="submit" value="Wybierz Tabelę"/>
+
+ </form>
+ 
+
 <?php
-  require_once 'login.php';
+$tableName = $_POST['tableName'];
+$_SESSION['tableName'] = $tableName;
 
     $conn = new mysqli($hn, $un, $pw, $db);
     if ($conn->connect_error) die("Błąd krytyczny");
 
 
-    echo '   <form action="get_scores.php" method="post"> ';
-echo ' <input type="radio" name="tableName" ';
- if (isset($tableName) && $tableName=="pistolet") echo "checked";
-echo 'value="pistolet">Pistolet
-<input type="radio" name="tableName" ';
-if (isset($tableName) && $tableName=="pistolet2") echo "checked";
-echo 'value="Pistolet2">Pistolet2
-<input type="radio" name="tableName"';
-if (isset($tableName) && $tableName=="karabin") echo "checked";
-echo 'value="karabin">Karabin
-<input type="submit" name="tableName">
-</form>';
 
-    //$tableName = $_SESSION['tableName'];
-    $tableName = 'pistolet';
-
+   
+ 
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
     $result = $conn->query($sql);
 
   
     if ($result->num_rows > 0) {
       // output data of each row
+
+      
 ?>
 <div id="form_div">
 
@@ -103,12 +113,12 @@ echo 'value="karabin">Karabin
     $result = $conn->query($sql);
     }
 
-  
+    echo $tableName;
     ?>
       </table>
-      <input type="hidden" name="update_row" value="<?php $tableName ?>" />
       <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
+      
       <a href ='index.php'><input type="submit" name="index.php" value="DODAJ NOWEGO UCZESTNIKA"></a>
   </div>
         

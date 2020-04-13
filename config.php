@@ -1,4 +1,6 @@
 <?php
+require_once 'session_start.php';
+
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'serwer2051534.home.pl');

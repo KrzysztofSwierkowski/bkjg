@@ -1,3 +1,15 @@
+<?php
+require_once 'session_start.php';
+require_once 'login.php';
+$tableName = $_SESSION['tableName'];
+
+
+if (isset($_POST['Submit'])) { 
+   $_SESSION['tableName'] = $_POST['tableName'];
+   //header('Location: xampp/Aptana/BDproj2/addp.php');
+ } 
+
+?>
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
@@ -13,17 +25,17 @@ function delete_row(rowno)
  $('#'+rowno).remove();
 }
 </script>
+
 <?php
 
 if(isset($_POST['submit_row']))
 {
-
-  require_once 'login.php';
+  
   $conn = new mysqli($hn, $un, $pw, $db);
   if ($conn->connect_error) die("Błąd krytyczny");
 
- //$tableName = $_POST['tableName'];
-  $tableName = 'pistolet';
+ 
+  //$tableName = 'pistolet';
 
   $sql = "CREATE TABLE $tableName (
    
@@ -73,5 +85,5 @@ if(isset($_POST['submit_row']))
       
     
 }
- 
+
 ?>

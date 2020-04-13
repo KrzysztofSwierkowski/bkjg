@@ -1,6 +1,8 @@
 <?php
+require_once 'session_start.php';
+$tableName = $_SESSION['tableName'];
 // Initialize the session
-session_start();
+
  
 // Unset all of the session variables
 $_SESSION = array();

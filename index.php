@@ -1,18 +1,19 @@
 <?php
+require_once 'session_start.php';
 // Initialize the session
-session_start();
+
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: logon.php");
     exit;
 }
+/*
+if (isset($_POST['Submit'])) { 
+  $_SESSION['tableName'] = $_POST['tableName'];
+  //header('Location: xampp/Aptana/BDproj2/addp.php');
+}  */
 ?>
-
-
-
-
-
 
 <html>
 <head>
@@ -65,21 +66,6 @@ function delete_row(rowno)
     
    </tr>
   </table>
-  <?php
-echo ' <input type="radio" name="tableName" ';
- if (isset($tableName) && $tableName=="pistolet") echo "checked";
-echo 'value="pistolet">Pistolet
-<input type="radio" name="tableName" ';
-if (isset($tableName) && $tableName=="pistolet2") echo "checked";
-echo 'value="Pistolet2">Pistolet2
-<input type="radio" name="tableName"';
-if (isset($tableName) && $tableName=="karabin") echo "checked";
-echo 'value="karabin">Karabin';
-
-//$_SESSION['tableName'] = $tableName;
-?>
-
-
 
   <input type="button" onclick="add_row();" value="Dodaj pozycje">
   <input type="hidden" name="submit_row" value="<?php $tableName ?>" />

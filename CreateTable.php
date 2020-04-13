@@ -1,13 +1,12 @@
-
 <?php
-
-
+require_once 'session_start.php';
 require_once 'login.php';
+
 
 $conn = new mysqli($hn, $un, $pw, $db);
 if ($conn->connect_error) die("Błąd krytyczny");
 
-$tableName = 'pistolet';//$_POST['tableName'];
+$tableName = $_SESSION['tableName'];
 
  //$tableName = $_POST['tableName'];
 
@@ -33,7 +32,7 @@ $tableName = 'pistolet';//$_POST['tableName'];
    /*    if (!$result) echo "Instrukcja nie powiodła się.<br><br>";
        elseif ($result) echo "Instrukcja powiodła się.<br><br>";
       
-*/
+
 
 $sql = "CREATE TABLE IF NOT EXISTS `uzytkownicy` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -45,6 +44,6 @@ $sql = "CREATE TABLE IF NOT EXISTS `uzytkownicy` (
   `ip` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;";
-$result = $conn->query($sql);
+$result = $conn->query($sql);*/
 
        ?>
