@@ -6,7 +6,7 @@ $tableName = $_SESSION['tableName'];
 
 if (isset($_POST['Submit'])) { 
    $_SESSION['tableName'] = $_POST['tableName'];
-   //header('Location: xampp/Aptana/BDproj2/addp.php');
+   
  } 
 
 ?>
@@ -34,8 +34,6 @@ if(isset($_POST['submit_row']))
   $conn = new mysqli($hn, $un, $pw, $db);
   if ($conn->connect_error) die("Błąd krytyczny");
 
- 
-  //$tableName = 'pistolet';
 
   $sql = "CREATE TABLE $tableName (
    

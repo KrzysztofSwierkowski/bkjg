@@ -1,18 +1,12 @@
 <?php
 require_once 'session_start.php';
-// Initialize the session
-
  
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: logon.php");
     exit;
 }
-/*
-if (isset($_POST['Submit'])) { 
-  $_SESSION['tableName'] = $_POST['tableName'];
-  //header('Location: xampp/Aptana/BDproj2/addp.php');
-}  */
+
 ?>
 
 <html>
@@ -21,8 +15,6 @@ if (isset($_POST['Submit'])) {
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-
-
 
 
 function add_row()
@@ -62,8 +54,7 @@ function delete_row(rowno)
     <td><input type="text" name="seria6[]" placeholder="Seria 6"></td>
     <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn."></td>
     <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki"></td>
-    <td id="wynik">Wynik</td>
-    
+        
    </tr>
   </table>
 

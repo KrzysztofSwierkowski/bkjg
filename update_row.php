@@ -2,10 +2,7 @@
 require_once 'session_start.php';
 require_once 'login.php';
 $tableName = $_SESSION['tableName'];
-if (isset($_POST['Submit'])) { 
-  $_SESSION['tableName'] = $_POST['tableName'];
-  //header('Location: xampp/Aptana/BDproj2/addp.php');
-} 
+
 ?>
 <link href="form_style.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -54,25 +51,15 @@ if(isset($_POST['update_row']))
  
           for($i=0;$i<count($id);$i++)
          {
-          //if($nazwisko[$i]!="" && $imie[$i]!="" && $seria1[$i]!="")
-          //{
-
-            
-            
+          
           $query = "UPDATE $tableName SET nazwisko = '$nazwisko[$i]' , imie = '$imie[$i]' , klub = '$klub[$i]' ,
                      seria1 = '$seria1[$i]', seria2 = '$seria2[$i]' , seria3 = '$seria3[$i]' , seria4 = '$seria4[$i]' 
                      , seria5 = '$seria5[$i]' , seria6 = '$seria6[$i]' , dziesiatkiW = '$dziesiatkiW[$i]' 
                      , dziesiatki = '$dziesiatki[$i]' where id=$id[$i] ";
-                     
-           
-       
+      
           if ($conn->query($query) === TRUE) {
             echo "Record updated successfully";
-            
-        //} else {
-         //   echo "Error updating record: " . $conn->error;
-        //}
-          
+  
           if (!$result) echo "<br><br>Instrukcja nie powiodła się.<br><br>";
            elseif ($result) echo "Instrukcja powiodła się.<br><br>";
           }

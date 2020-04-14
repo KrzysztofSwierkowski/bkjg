@@ -1,7 +1,6 @@
 <?php
 require_once 'session_start.php';
 require_once 'login.php';
-//$tableName = $_SESSION['tableName'];
 // Initialize the session
 
  
@@ -13,7 +12,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 if (isset($_POST['Submit'])) { 
   $_SESSION['tableName'] = $_POST['tableName'];
-  //header('Location: xampp/Aptana/BDproj2/addp.php');
+  
 } 
 
 ?>
