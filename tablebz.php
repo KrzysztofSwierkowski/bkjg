@@ -43,7 +43,7 @@ require_once 'login.php';
     
     <div class="banner">
     <img src="img\BKJG.png">
-    <h3 >Pistolet sportowy bocznego zapłonu – Psp 60<br> sesja 1 / 2020 r.</h3>
+    <h3 >Pistolet sportowy <br> bocznego zapłonu <br> Psp 60<br> sesja 1 / 2020 r.</h3>
     <img src="img\PZSS.png">
     </div>
 
@@ -52,7 +52,7 @@ require_once 'login.php';
     <table class="cinereousTable" align=center border="1">
 
 
-  <tr id="row1">;
+  <tr id="row1">
 
 <thead>
 <th>Miejsce</th>

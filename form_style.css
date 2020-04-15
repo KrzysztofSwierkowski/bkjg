@@ -6,33 +6,40 @@ body
  width:100%;
  font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
  background-color:#fcf9ef;
-}
+ }
 
 .banner {
-  width: fit-content;
-  height: 200px;
+  overflow: auto;
+  width: 100%;
+  min-width: 750px;
+  height: 20vh;
+  margin: 0 auto;
   display: flex;
+  vertical-align: middle;
+  
   }
+
+
 h3 {
   
-    
     font-family: Georgia, serif;
-    font-size: 25px;
-    letter-spacing: 2px;
-    word-spacing: 0.4px;
+    font-size: 3vh;
+    letter-spacing: 3px;
+    word-spacing: 0.5px;
     color: #000000;
     font-weight: 700;
-    text-decoration: underline solid rgb(68, 68, 68);
     font-style: italic;
     font-variant: normal;
     text-transform: none;
     
+       
 }
 
 .banner img {
   height: 20vh;
-  
-  
+  vertical-align: middle;
+  margin: 0 auto;
+   
 }
 
 #wrapper
@@ -41,6 +48,7 @@ h3 {
  padding:0px;
  text-align:center;
  width:80%;
+ background-image: "img\gun.png";
 }
 #wrapper h1
 {
