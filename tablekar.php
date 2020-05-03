@@ -13,7 +13,17 @@ require_once 'login.php';
 
    $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, wynik, dziesiatki, dziesiatkiW FROM $tableName ORDER BY wynik DESC , dziesiatkiW DESC, dziesiatki DESC"; //ASC - sort malejące
     $result = $conn->query($sql);
-
+    $cfg['file'] = "licznik.txt"; // ścieżka z plikiem
+    $cfg['read'] = file_get_contents($cfg['file']); // odczytuje plik
+    
+    if(!isset($_COOKIE['licznik'])) {
+        setcookie('licznik', 'licznik', time() + 7*24*3600); // wysyła ciasteczko do przeglądarki użytkownika
+        $fp = fopen($cfg['file'], "w"); // otwiera plik
+        flock($fp, 2); // blokuje plik
+        fwrite($fp, $cfg['read']+1); // zapis do pliku
+        flock($fp,3); // blokuje plik
+        fclose($fp); // zamyka plik
+    }
 
     echo '
     <!DOCTYPE html>
@@ -45,11 +55,11 @@ require_once 'login.php';
     <img src="img\BKJG.png">
     <h3 >Karabin sportowy <br> bocznego zapłonu <br> Kdw 60<br> sesja 1 / 2020 r.</h3>
     <img src="img\PZSS.png">
-    </div>
+    </div>';
 
 
-    
-    <table class="cinereousTable" align=center border="1">
+    echo "Liczba odwiedzin :"; echo $cfg['read']; // wyświetlenie liczby odwiedzin
+   echo '<table class="cinereousTable" align=center border="1">
 
 
   <tr id="row1">
@@ -103,8 +113,9 @@ $place++;
 
 }
 echo "</table>";
-
+echo '<b>Ostatnia aktualizacja : ' . file_get_contents("date.txt") . '</b>';
 ?>
+
 </div>
 </body>
     </html>
