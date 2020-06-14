@@ -35,15 +35,17 @@ function delete_row(rowno)
  $('#'+rowno).remove();
 }
 </script>
+<div id="choseTable"> Wybierz interesującą cię tabele :  </div>
 
+<div id="typeTable">
 <form method="post" action="">
-   <input type="radio" name="tableName" value="pistolet"/>Pistolet bocznego zapłonu
-   <input type="radio" name="tableName" value="pistolet2"/>Pistolet centralnego zapłonu  
-   <input type="radio" name="tableName" value="karabin"/>Karabin   
+   <input type="radio" name="tableName" value="pistolet"/>Pistolet centralnego zapłonu<br>
+   <input type="radio" name="tableName" value="pistolet2"/>Pistolet bocznego zapłonu  <br>
+   <input type="radio" name="tableName" value="karabin"/>Karabin   <br>
    <input type="submit" value="Wybierz Tabelę"/>
 
  </form>
- 
+ </div>
 
 <?php
 $tableName = $_POST['tableName'];
@@ -114,13 +116,20 @@ $_SESSION['tableName'] = $tableName;
     $result = $conn->query($sql);
     }
 
-    echo $tableName;
+    if($tableName == 'pistolet')
+    echo 'Wybrałeś: pistolet centralnego zapłonu'; 
+    elseif ($tableName == 'pistolet2')
+    echo 'Wybrałeś: pistolet bocznego zapłonu'; 
+    elseif ($tableName == 'karabin')
+    echo 'Wybrałeś: Karabin';
+
+
     ?>
       </table>
       <input type="submit" name="update_row" value="AKTUALIZUJ">
       </form>
       
-      <a href ='index.php'><input type="submit" name="index.php" value="DODAJ NOWEGO UCZESTNIKA"></a>
+      <a href ='index.php'><input type="submit" name="index.php" value="DODAJ WIERSZE"></a>
   </div>
         
       

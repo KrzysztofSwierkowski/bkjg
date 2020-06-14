@@ -32,7 +32,7 @@ function delete_row(rowno)
 
 <body>
 
-        <div id="top">TABELA WYNIK&Oacute;W</div>   
+        <div id="top">Dodawanie nowych wierszy do bazy danych.<br> Jeśli nie dodajesz, przejdź do Tabeli wyników poprzez przycisk poniżej </div>   
         
 <div id="wrapper">
 
@@ -58,12 +58,14 @@ function delete_row(rowno)
    </tr>
   </table>
 
-  <input type="button" onclick="add_row();" value="Dodaj pozycje">
+  <input type="button" onclick="add_row();" value=" DODAJ WIERSZ ">
   <input type="hidden" name="submit_row" value="<?php $tableName ?>" />
   <input type="submit" name="submit_row" value="ZAPISZ">
  </form>
  <form action="get_scores.php">
  <input type="hidden" name="get_scores" value="<?php $tableName ?>" />
+
+ <div id="choseTable">   </div>
         <input type="submit" name="get_scores" value="Tabela wyników">
       </form>
  

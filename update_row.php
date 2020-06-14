@@ -25,6 +25,9 @@ function delete_row(rowno)
 <?php
 
 echo $tableName;
+
+
+
 if(isset($_POST['update_row']))
 {
 
