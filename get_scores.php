@@ -56,7 +56,7 @@ $_SESSION['tableName'] = $tableName;
 
    
  
-   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatkiW, dziesiatki FROM $tableName";
+   $sql = "SELECT id, nazwisko, imie, klub, seria1, seria2, seria3, seria4, seria5, seria6, dziesiatki, dziesiatkiW FROM $tableName";
     $result = $conn->query($sql);
 
   
@@ -82,8 +82,9 @@ $_SESSION['tableName'] = $tableName;
              <th>Seria 4</th>
              <th>Seria 5</th>
              <th>Seria 6</th>
+             <th>Dziesiątki</th>
             <th>Dziesiątki wew</th>
-            <th>Dziesiątki</th>
+            
 <?php
            while($row = $result->fetch_assoc()) {
         
@@ -100,8 +101,9 @@ $_SESSION['tableName'] = $tableName;
             <td><input type="text" name="seria4[]" placeholder="Seria 4" value = ' . $row['seria4']. '></td>
             <td><input type="text" name="seria5[]" placeholder="Seria 5" value = ' . $row['seria5']. '></td>
             <td><input type="text" name="seria6[]" placeholder="Seria 6" value = ' . $row['seria6']. '></td>
-            <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn." value = ' . $row['dziesiatkiW']. '></td>
-            <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>';
+            <td><input type="text" name="dziesiatki[]" placeholder="Dziesiątki" value = ' . $row['dziesiatki']. '></td>
+            <td><input type="text" name="dziesiatkiW[]" placeholder="Dziesiątki wewn." value = ' . $row['dziesiatkiW']. '></td>';
+            
             echo "<td><a href='delete.php?id=".$row['id']."'><input type='button' value='USUŃ'></a></td>";
                        
             echo "</tr>";

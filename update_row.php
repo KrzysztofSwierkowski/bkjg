@@ -69,6 +69,6 @@ if(isset($_POST['update_row']))
 }
 $sql ="UPDATE $tableName SET wynik=seria1 + seria2 + seria3 + seria4 + seria5 + seria6";
 $result = $conn->query($sql);
-file_put_contents('date.txt', date('m/d/Y/g:iA'));
+file_put_contents('date.txt', date('d/m/Y'));
 
 ?>
